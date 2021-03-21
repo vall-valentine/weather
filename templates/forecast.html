@@ -51,22 +51,23 @@
         padding: 1%;
         margin: 0.5%;
         }
-        .horizontal  {
-        width: 100px;
-        height: 300px;
-        overflow-y: auto;
-        overflow-x: hidden;
-        transform: rotate(-90deg);
-        transform-origin: right top;
-        transform:rotate(-90deg) translateY(-100px);
-        }
-        .horizontal > div {
-        width: 100px;
-        height: 100px;
-        transform: rotate(90deg);
-        transform-origin: right top;
-        }
         .forecast_date {
+        font-family: 'Courier New', monospace;
+        text-align: center;
+        color: white;
+        font-size: 20px;
+        }
+        .forecast_temp {
+        font-family: 'Courier New', monospace;
+        text-align: center;
+        color: white;
+        font-size: 25px;
+        }
+        .horizontal {
+        border: 2px solid white;
+        width: 50%;
+        border-radius: 8px;
+        margin: auto;
         }
     </style>
     <title>{{ city }}</title>
