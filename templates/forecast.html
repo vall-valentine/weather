@@ -76,19 +76,24 @@
 <h1>{{ city }}</h1>
 <a href="./"><input class="graph_button" type="button" value="График"></a>
 <div class="dates">
+    <form method="post">
+    {{ form.hidden_tag() }}
+
   <label for="1">Начальная дата:</label>
-  <input type="date" id='1' name="date1">
+  <input type="text" id='1' name="date1">
   <label for="2">Конечная дата:</label>
-  <input type="date" id='2' name="date2"></br>
+  <input type="text" id='2' name="date2"></br>
   <button class="submit_button" type="submit" value="Показать">Показать</button>
+            </form>
 </div>
 <div class="horizontal">
-    {% for temp in temps %}
+    {% for temp in temps_data %}
     <div class="temp">
-        <p class="forecast_date">{{ date }}</p>
-        <p class="forecast_temp">{{ temp }} C</p>
+        <p class="forecast_date">{{ temp[0] }}</p>
+        <p class="forecast_temp">{{ temp[1] }} C</p>
     </div>
     {% endfor %}
+
 </div>
 <a href="./"><input class="back_button" type="button" value="Назад"></a>
 </body>
