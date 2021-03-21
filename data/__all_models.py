@@ -12,3 +12,5 @@ class Temp(SqlAlchemyBase):
     month = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     year = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     temp = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    is_changed = sqlalchemy.Column(sqlalchemy.Boolean, nullable=True)
+    city = sqlalchemy.Column(sqlalchemy.String, nullable=True)
