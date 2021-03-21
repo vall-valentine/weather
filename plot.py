@@ -1,9 +1,5 @@
-import pandas as pd
 import matplotlib.pyplot as plt
 import json
-from PyQt6 import QtWidgets
-import sys
-#! TODO: import design
 
 def filter(path):
     file = open(path)
@@ -66,10 +62,6 @@ def prognoz(f, a, b):
     if input("(да / нет): ") == "да":
         makePlot(f, a, b)
 
-
-# первый параметр - файл по которому строится график
-# второй параметр для года 365, для всего промежутка 7300
-# makePlot(r"data\20_years_format\Южный.json", 7300)
 
 def main():
     print("Вы хотите построить график по историческим данным или посмотреть прогноз?")
