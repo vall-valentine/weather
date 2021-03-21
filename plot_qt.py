@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 import json
 from PyQt6 import QtWidgets
 import sys
-#! TODO: import design
 
 def filter(path):
     file = open(path)
@@ -13,8 +12,8 @@ def filter(path):
     print("день | ошибка")
     for i in range(1, len(data)-1):
         if abs((data[i-1]+data[i+1])/2-data[i]) > 10:
-            print(i, data[i])
             data[i] = (data[i-1]+data[i+1])/2
+            print(i, data[i])
     return data
 
 
@@ -66,6 +65,11 @@ def prognoz(f, a, b):
     if input("(да / нет): ") == "да":
         makePlot(f, a, b)
 
+def basicWindow():
+    app = QtWidgets.QApplication(sys.argv)
+    windowExample = QtWidgets.QWidget()
+    windowExample.setWindowTitle('Basic Window Example')
+    windowExample.show()
 
 # первый параметр - файл по которому строится график
 # второй параметр для года 365, для всего промежутка 7300
