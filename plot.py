@@ -41,8 +41,10 @@ def makePlot(f):
 
 
 def makePredictArr(f): 
-    filtred = filter()
+    filtred = filter(f)
     return genAver([prediction(n, filtred) for n in range(0, 365)])
 
 
-print(makePredictArr(r"YOUR FILE"))
+file = open(r"data\20_years_format\predictions\Южный0.json", "w")
+t = str(makePredictArr(r"data\20_years_format\Южный.json"))
+file.write(t)
