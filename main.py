@@ -33,18 +33,18 @@ def cur_city():
 
 # прогноз погоды
 @app.route('/cities/<city>/predicts', methods=['GET'])
-def cur_city():
+def cur_city(city):
     db_session.global_init("db/database.sqlite")
     session = db_session.create_session()
     form = Form
     if form.is_submitted():
-        d1 = session.query(Temp).filter(Temp.data == form.data1.data).first()
-        d2 = session.query(Temp).filter(Temp.data == form.data2.data).first()
+        d1 = session.query(Temp).filter(Temp.data == form.data1.data, Temp.city == city).first()
+        d2 = session.query(Temp).filter(Temp.data == form.data1.data, Temp.city == city).first()
         temps_data = []
         for i in range(d1.id, d2.id):
             a = session.query(Temp).filter(Temp.id == i).first()
             temps_data.append(tuple(a.id, a.date))
-        return render_template('forecast.html', temps_data=temps_data)
+        return render_template('forecast.html', temps_data=temps_data, city=city)
     return render_template('forecast.html', form=form)
 
 
