@@ -44,7 +44,7 @@ def cur_city(city):
         for i in range(d1.id, d2.id):
             a = session.query(Temp).filter(Temp.id == i).first()
             temps_data.append(tuple(a.id, a.date))
-        return render_template('forecast.html', temps_data=temps_data)
+        return render_template('forecast.html', temps_data=temps_data, city=city)
     return render_template('forecast.html', form=form)
 
 
