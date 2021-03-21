@@ -6,7 +6,8 @@ app = Flask(__name__)
 
 
 @app.route('/', methods=['GET'])
-def index():
+@app.route('/cities', methods=['GET'])
+def cities():
     db_session.global_init("db/database.sqlite")
     session = db_session.create_session()
 
@@ -19,6 +20,14 @@ def index():
     #         )
     # session.add(user)
     # session.commit()
+    return render_template('main_page.html')
+
+
+@app.route('/cities/<city>', methods=['GET'])
+def city():
+    db_session.global_init("db/database.sqlite")
+    session = db_session.create_session()
+
     return render_template('main_page.html')
 
 
