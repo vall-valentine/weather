@@ -33,9 +33,16 @@ def genAver(arr):
     return data
 
 
-f = r"C:\Users\Admin\Documents\weather-local\20_years_format\Алмазный.json"
-filtred = filter(f)
+def makePlot(f):
+    filtred = filter(f)
+    plt.plot([m for m in range(0, 365)], genAver([prediction(n, filtred)
+                                                  for n in range(0, 365)]))  # Ox, Oy
+    plt.show()
 
-plt.plot([m for m in range(0, 365)], genAver([prediction(n, filtred)
-                                              for n in range(0, 365)]))  # Ox, Oy
-plt.show()
+
+def makePredictArr(f): 
+    filtred = filter()
+    return genAver([prediction(n, filtred) for n in range(0, 365)])
+
+
+print(makePredictArr(r"YOUR FILE"))
