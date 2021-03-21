@@ -33,18 +33,21 @@ def genAver(arr):
     return data
 
 
-def makePlot(f):
+def makePlot(f,a):
     filtred = filter(f)
-    plt.plot([m for m in range(0, 365)], genAver([prediction(n, filtred)
-                                                  for n in range(0, 365)]))  # Ox, Oy
+    plt.plot([m for m in range(0, a)], genAver(filtred))  # Ox, Oy
     plt.show()
 
 
-def makePredictArr(f): 
+def makePredictArr(f):
     filtred = filter(f)
     return genAver([prediction(n, filtred) for n in range(0, 365)])
 
 
-file = open(r"data\20_years_format\predictions\Южный0.json", "w")
-t = str(makePredictArr(r"data\20_years_format\Южный.json"))
-file.write(t)
+def writeFile():
+    file = open(r"data\20_years_format\predictions\Южный0.json", "w")
+    t = str(makePredictArr(r"data\20_years_format\Южный.json"))
+    file.write(t)
+
+# второй параметр для года 365, для всего промежутка 7300
+makePlot(r"data\20_years_format\Южный.json", 7300)
