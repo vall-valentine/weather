@@ -7,7 +7,7 @@ files = ['Алмазный0.json', 'Западный0.json', 'Курортный
          'Полярный0.json', 'Портовый0.json', 'Приморский0.json', 'Садовый0.json', 'Северный0.json',
          'Степной0.json', 'Таежный0.json', 'Южный0.json']
 
-dates = pd.date_range(start='2020-01-01', periods=365, freq='D')
+dates = pd.date_range(start='2020-01-01', periods=366, freq='D')
 # Исключаем високосные "дни"
 leap_days = (dates.month == 2) & (dates.day == 29)
 dates = dates[~leap_days]
@@ -15,7 +15,8 @@ dates = dates[~leap_days]
 dfs = []
 for file in files:
     city = file[:-5]
-    df = pd.read_json('data/' + file)
+    print('data/20_years_format/predictions/' + file)
+    df = pd.read_json('data/20_years_format/predictions/' + file)
     df.columns = ['temp']
 
     # Сглаживаем аномалии
