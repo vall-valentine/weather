@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+        background-color: rgb(120,120,200);
+        text-align: center;
+        }
+        h1 {
+        font-family: 'Courier New', monospace;
+        text-align: center;
+        color: white;
+        font-size: 64px;
+        }
+        .back_button {
+        color: rgb(130,130,200);
+        text-align: center;
+        font-family: 'Courier New', monospace;
+        border-radius: 4px;
+        border: none;
+        background-color: white;
+        font-size: 20px;
+        padding: 1%;
+        margin: 1%;
+        }
+        label {
+        font-family: 'Courier New', monospace;
+        color: white;
+        font-size: 15px;
+        }
+        .graph_button {
+        color: rgb(130,130,200);
+        text-align: center;
+        font-family: 'Courier New', monospace;
+        border-radius: 4px;
+        border: none;
+        background-color: white;
+        font-size: 20px;
+        padding: 1.5%;
+        margin: 1%;
+        }
+        .submit_button {
+        color: rgb(130,130,200);
+        text-align: center;
+        font-family: 'Courier New', monospace;
+        border-radius: 4px;
+        border: none;
+        background-color: white;
+        font-size: 20px;
+        padding: 1%;
+        margin: 0.5%;
+        }
+        .horizontal  {
+        width: 100px;
+        height: 300px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        transform: rotate(-90deg);
+        transform-origin: right top;
+        transform:rotate(-90deg) translateY(-100px);
+        }
+        .horizontal > div {
+        width: 100px;
+        height: 100px;
+        transform: rotate(90deg);
+        transform-origin: right top;
+        }
+        .forecast_date {
+        }
+    </style>
+    <title>{{ city }}</title>
+</head>
+<body>
+<h1>{{ city }}</h1>
+<a href="./"><input class="graph_button" type="button" value="График"></a>
+<div class="dates">
+  <label for="1">Начальная дата:</label>
+  <input type="date" id='1' name="date1">
+  <label for="2">Конечная дата:</label>
+  <input type="date" id='2' name="date2"></br>
+  <button class="submit_button" type="submit" value="Показать">Показать</button>
+</div>
+<div class="horizontal">
+    {% for temp in temps %}
+    <div class="temp">
+        <p class="forecast_date">{{ date }}</p>
+        <p class="forecast_temp">{{ temp }}</p>
+    </div>
+    {% endfor %}
+</div>
+<a href="./"><input class="back_button" type="button" value="Назад"></a>
+</body>
+</html>
